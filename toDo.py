@@ -47,14 +47,13 @@ def search_tasks(tasks: list, keyword: str) -> list:
 def mark_task_as_done(tasks: list, index: int) -> bool:
     tasks[index] += "✅️"
 
-             
-            
+                         
 def main() -> None:
     while True:
         status_user = get_user_choice()
         if status_user == "1":
-            user = input("enter a mission: ")
-            add_task(todo_list, user)
+            user_task = input("enter a mission: ")
+            add_task(todo_list, user_task)
         elif status_user == "2":
             show_all_tasks(todo_list)
         elif status_user == "3":
@@ -66,8 +65,8 @@ def main() -> None:
         elif status_user == "4":
             user_index = get_task_index_from_user()
             if user_index in range(len(todo_list)):
-                user_change = input("enter a update mission: ")
-                edit_task(todo_list, user_index, user_change)
+                user_edit_task = input("enter a update mission: ")
+                edit_task(todo_list, user_index, user_edit_task)
             else:
                 print("!!!wrong index!!!")
         elif status_user == "6":
@@ -79,7 +78,8 @@ def main() -> None:
                 mark_task_as_done(todo_list, user_done)
         elif status_user == "5":
              break  
-if __name__=="__main":      
-    main()
+main()
+# if __name__=="__main":      
+#     main()
     
     
