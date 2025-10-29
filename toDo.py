@@ -1,4 +1,6 @@
-todo_list = []
+
+
+todo_list = ["Buy milk", "Do homework", "Buy bread", "Buy"]
 
 def add_task(tasks: list, task: str) -> None:
     tasks.append(task)
@@ -17,6 +19,8 @@ def get_user_choice() -> str:
                 3. Deleting a task
                 4. Editing a task
                 5. exit
+                6. search for a word
+                7. Mark as done
                 ''')
     
     user_input = input("choice a num from menu: ")
@@ -33,7 +37,18 @@ def get_task_index_from_user() -> int:
     user = int(input("enter a number of index: "))
     return user - 1
     
+def search_tasks(tasks: list, keyword: str) -> list:
+    arr = []
+    for i,v in enumerate(tasks):
+        if keyword in tasks[i]:
+            arr.append((i,v))         
+    return arr
 
+def mark_task_as_done(tasks: list, index: int) -> bool:
+    tasks[index] += "✅️"
+
+             
+            
 def main() -> None:
     while True:
         status_user = get_user_choice()
@@ -55,9 +70,16 @@ def main() -> None:
                 edit_task(todo_list, user_index, user_change)
             else:
                 print("!!!wrong index!!!")
+        elif status_user == "6":
+            user_search = input("enter a word to search: ")
+            print(search_tasks(todo_list, user_search))
+        elif status_user == "7":
+            user_done =get_task_index_from_user()
+            if user_done in range(len(todo_list)):
+                mark_task_as_done(todo_list, user_done)
         elif status_user == "5":
              break  
-      
-main()
+if __name__=="__main":      
+    main()
     
     
