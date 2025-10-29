@@ -1,7 +1,4 @@
 
-
-todo_list = ["Buy milk", "Do homework", "Buy bread", "Buy"]
-
 def add_task(tasks: list, task: str) -> None:
     tasks.append(task)
     
@@ -47,39 +44,7 @@ def search_tasks(tasks: list, keyword: str) -> list:
 def mark_task_as_done(tasks: list, index: int) -> bool:
     tasks[index] += "✅️"
 
-             
-            
-def main() -> None:
-    while True:
-        status_user = get_user_choice()
-        if status_user == "1":
-            user = input("enter a mission: ")
-            add_task(todo_list, user)
-        elif status_user == "2":
-            show_all_tasks(todo_list)
-        elif status_user == "3":
-            user_del = get_task_index_from_user()
-            if user_del in range(len(todo_list)):
-                delete_task(todo_list, user_del)
-            else:
-                print("\n!!!wrong index!!!")
-        elif status_user == "4":
-            user_index = get_task_index_from_user()
-            if user_index in range(len(todo_list)):
-                user_change = input("enter a update mission: ")
-                edit_task(todo_list, user_index, user_change)
-            else:
-                print("!!!wrong index!!!")
-        elif status_user == "6":
-            user_search = input("enter a word to search: ")
-            print(search_tasks(todo_list, user_search))
-        elif status_user == "7":
-            user_done =get_task_index_from_user()
-            if user_done in range(len(todo_list)):
-                mark_task_as_done(todo_list, user_done)
-        elif status_user == "5":
-             break  
-if __name__=="__main":      
-    main()
+                         
+
     
     
